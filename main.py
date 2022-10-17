@@ -2,6 +2,7 @@ from PyPDF2 import PdfReader
 import os
 from _collections import OrderedDict
 import matplotlib.pylab as plt
+import sys
 
 name = None
 for i in os.listdir():
@@ -12,10 +13,12 @@ try:
     reader = PdfReader(name)
 except AttributeError:
     input("DOWNLOAD THE PDF FILE OF THE BOOK YOU WANT AND COPY IT TO THIS FOLDER")
-    quit()
+    sys.exit()
 
 pages = len(reader.pages)
 words = {}
+chars=[".",",","!",'"',"“","”","-","–",")","(",";",":","?"]
+chars2=["'","’"]
 
 for page in range(len(reader.pages)):
     if os.name == "nt":
@@ -27,30 +30,15 @@ for page in range(len(reader.pages)):
     text = reader.pages[page].extract_text()
     for word in text.split():
         word = word.lower().strip()
-        word = word.replace(".", "")
-        word = word.replace(",", "")
-        word = word.replace("!", "")
-        word = word.replace('"', "")
-        word = word.replace("“", "")
-        word = word.replace("”", "")
-        word = word.replace("-", "")
-        word = word.replace("–", "")
-        word = word.replace(")", "")
-        word = word.replace("(", "")
-        word = word.replace(";", "")
-        word = word.replace(":", "")
-        word = word.replace("?", "")
+        for i in chars:
+            word=word.replace(i,"")
 
-        try:
-            word.split("'")[1]
-            word = word.split("'")[0]
-        except IndexError:
-            pass
-        try:
-            word.split("’")[1]
-            word = word.split("’")[0]
-        except IndexError:
-            pass
+        for i in chars2:
+            try:
+                word.split(i)[1]
+                word = word.split(i)[0]
+            except IndexError:
+                pass
 
         if not word in words:
             if len(word) < 2:
