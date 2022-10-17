@@ -72,7 +72,7 @@ limit = input("How many words do you want to see? ")
 try:
     limit = int(limit)
 except ValueError:
-    input("JUST ENTER NUMBERS. EXAMPLE: 10")
+    input("ENTER NUMBER ONLY")
     sys.exit()
 
 most_used = {}
@@ -101,6 +101,5 @@ except ValueError:
 
 del a
 
-#plt.plot(x, y)
-plt.bar(y, x, width=40, color="cyan")
+plt.plot(x, y)
 plt.show()
