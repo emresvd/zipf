@@ -26,7 +26,7 @@ for page in range(len(reader.pages)):
     if os.name == "posix":
         os.system("clear")
 
-    print("{}/{}".format(page + 1, pages))
+    print("{}/{} {}%".format(page + 1, pages, int(((page+1)/pages)*100)))
     text = reader.pages[page].extract_text()
     for word in text.split():
         word = word.lower().strip()
@@ -85,5 +85,6 @@ except ValueError:
     input("UNKNOWN ERROR")
     sys.exit()
 
-plt.plot(x, y)
+#plt.plot(x, y)
+plt.bar(x, y)
 plt.show()
