@@ -78,6 +78,12 @@ for i in words_sorted_reversed:
 
 a = most_used.items()
 a = sorted(a)
-x, y = zip(*a)
+
+try:
+    x, y = zip(*a)
+except ValueError:
+    input("UNKNOWN ERROR")
+    sys.exit()
+
 plt.plot(x, y)
 plt.show()
