@@ -65,7 +65,7 @@ try:
     limit = int(limit)
 except ValueError:
     input("JUST ENTER NUMBERS. EXAMPLE: 10")
-    quit()
+    sys.exit()
 
 most_used = {}
 a = 0
