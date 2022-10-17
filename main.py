@@ -60,6 +60,7 @@ del chars
 del chars2
 del pages
 del name
+del reader
 
 words_sorted = {k: v for k, v in sorted(
     words.items(), key=lambda item: item[1])}
@@ -101,5 +102,5 @@ except ValueError:
 del a
 
 #plt.plot(x, y)
-plt.bar(x, y, width=0.4, color="cyan")
+plt.bar(y, x, width=40, color="cyan")
 plt.show()
