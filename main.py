@@ -56,9 +56,16 @@ for page in range(len(reader.pages)):
         else:
             words[word] = words[word] + 1
 
+del chars
+del chars2
+del pages
+del name
+
 words_sorted = {k: v for k, v in sorted(
     words.items(), key=lambda item: item[1])}
 words_sorted_reversed = dict(OrderedDict(reversed(list(words_sorted.items()))))
+
+del words_sorted
 
 limit = input("How many words do you want to see? ")
 try:
@@ -74,10 +81,16 @@ for i in words_sorted_reversed:
     print("{}. {} => {}".format(a, i, words_sorted_reversed[i]))
     most_used[words_sorted_reversed[i]] = i
     if a == limit:
+        del a
         break
+
+del words_sorted_reversed
+del limit
 
 a = most_used.items()
 a = sorted(a)
+
+del most_used
 
 try:
     x, y = zip(*a)
@@ -85,6 +98,8 @@ except ValueError:
     input("UNKNOWN ERROR")
     sys.exit()
 
+del a
+
 #plt.plot(x, y)
-plt.bar(x, y)
+plt.bar(x, y, width=0.4, color="cyan")
 plt.show()
