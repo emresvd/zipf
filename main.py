@@ -17,8 +17,8 @@ except AttributeError:
 
 pages = len(reader.pages)
 words = {}
-chars=[".",",","!",'"',"“","”","-","–",")","(",";",":","?"]
-chars2=["'","’"]
+chars = [".", ",", "!", '"', "“", "”", "-", "–", ")", "(", ";", ":", "?"]
+chars2 = ["'", "’"]
 
 for page in range(len(reader.pages)):
     if os.name == "nt":
@@ -31,7 +31,7 @@ for page in range(len(reader.pages)):
     for word in text.split():
         word = word.lower().strip()
         for i in chars:
-            word=word.replace(i,"")
+            word = word.replace(i, "")
 
         for i in chars2:
             try:
@@ -56,7 +56,8 @@ for page in range(len(reader.pages)):
         else:
             words[word] = words[word] + 1
 
-words_sorted = {k: v for k, v in sorted(words.items(), key=lambda item: item[1])}
+words_sorted = {k: v for k, v in sorted(
+    words.items(), key=lambda item: item[1])}
 words_sorted_reversed = dict(OrderedDict(reversed(list(words_sorted.items()))))
 
 limit = input("How many words do you want to see? ")
