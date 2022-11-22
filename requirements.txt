@@ -9,7 +9,7 @@ matplotlib==3.5.2
 numpy==1.22.0
 packaging==21.3
 pefile==2022.5.30
-Pillow==9.2.0
+Pillow==9.3.0
 pycodestyle==2.9.1
 pyinstaller==5.5
 pyinstaller-hooks-contrib==2022.10
